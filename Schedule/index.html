@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        #mainContent {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+            background-color: #cccccc;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .buttonStyle {
+            border-radius: 4px;
+            border: thin solid #F0E020;
+            padding: 5px;
+            background-color: #F8F094;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: #663300;
+            width: 75px;
+        }
+
+        .buttonStyle:hover {
+            border: thin solid #FFCC00;
+            background-color: #FCF9D6;
+            color: #996633;
+            cursor: pointer;
+        }
+
+        .buttonStyle:active {
+            border: thin solid #99CC00;
+            background-color: #F5FFD2;
+            color: #669900;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainContent">
+        <h1>
+            Schedule
+        </h1>
+        <div class="container">
+            <div class="dropdown">
+                <!---
+                <form action="/action_page.php">
+                    Activity: <input type="text" name="fname"><br> Time: <input type="time" id="appt" name="appt" min="9:00" max="18:00" required><br>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                   Day of the Week
+                  </button><br>
+                    <input type="submit" value="Submit">
+                </form>
+                --->
+                Activity: <input type="text" name="fname" id = "input-activity">
+                <br> 
+                Time: <input type="time" id="input-time" min="0:00" max="24:00" required>
+                <br>
+
+                    <select name="days" id = "input-day">
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                      <option value="Sunday">Sunday</option>
+                    </select>
+
+                <br>
+                <button id="submit-button">
+                    Submit
+                </button>
+            </div>
+        </div>
+        <table class="table" id = "table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+
+        <p id="helloText"></p>
+    </div>
+    <script>
+        var events = [
+            
+        ];
+        
+        
+
+        document.getElementById("submit-button").addEventListener("click", submit);
+        
+        function submit() {
+            var table = document.getElementById("table");
+            
+            var vday = document.getElementById("input-day").value;
+            var vtime = document.getElementById("input-time").value;
+            var vactivity = document.getElementById("input-activity").value;
+            
+            
+            
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            
+            cell1.innerHTML = vday;
+            cell2.innerHTML = vtime;
+            cell3.innerHTML = vactivity;
+        }
+    </script>
+
+</body>
+
+</html>
